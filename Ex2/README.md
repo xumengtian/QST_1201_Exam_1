@@ -1,6 +1,6 @@
 
 题目2：编写MapReduce，统计`/user/hadoop/mapred_dev/ip_time` 中去重后的IP数，越节省性能越好。（35分）
-结果:550
+结果:1218
 //可以在map部分进行hashset去重，可以减少中间的部分。
 ---
 
