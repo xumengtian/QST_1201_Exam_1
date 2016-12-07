@@ -41,12 +41,12 @@ public class Haha2 {
 				throws IOException, InterruptedException {
 			FileSplit fileSplit = (FileSplit) context.getInputSplit();
 			String filename = fileSplit.getPath().toString(); 
-			if (filename.contains("ip_time")) {
+			if (filename.equals("ip_time")) {
 				String line = value.toString();
 				String str[] = line.split(" ");
 				String ip=str[0];
 				context.write(new Text(ip), new Text("1++"));
-			} else if (filename.contains("ip_time_2")) {
+			} else if (filename.equals("ip_time_2")) {
 				String line = value.toString();
 				String str[] = line.split(" ");
 				String ip=str[0];
@@ -62,10 +62,10 @@ public class Haha2 {
 			Set<String> set = new HashSet<String>();
 			while(values.iterator().hasNext()){
 				String line = values.iterator().next().toString();
-				set.add(line);
-				if(set.size()>1){
-					context.write(new Text(key),new Text(""));
-				}
+				set.add(line);				
+			}
+			if(set.size()>1){
+				context.write(new Text(key),new Text(""));
 			}
 
 		}
